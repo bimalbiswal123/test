@@ -1,0 +1,25 @@
+from copy import copy
+def split(x, max):
+    all_groups = []
+    if sum(x)>max:
+        while x:
+            new_g = []
+            print ('x=',x)
+            y=copy(x)
+            for i in y:
+                print(i)
+                capacity_remaining = max - sum(new_g)
+                print ('capacity_remaining', capacity_remaining, i)
+                if i <= capacity_remaining:
+                    new_g.append(i)
+                    x.remove(i)
+            print (2,new_g)
+            all_groups.append(new_g)
+
+    else:
+        all_groups.append(x)
+    return all_groups
+
+if __name__=='__main__':
+    #print ([5,2,3,4,2]-[5,2,3])
+    print (split([7,7,6], 10))
